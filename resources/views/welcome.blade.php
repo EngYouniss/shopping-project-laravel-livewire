@@ -15,7 +15,6 @@
         @livewireStyles
     </head>
     <body >
-        <livewire:product-component/>
         @livewireScripts
     </body>
 </html>
