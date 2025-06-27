@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 @section('title', 'index')
+@section('index-active','active')
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">

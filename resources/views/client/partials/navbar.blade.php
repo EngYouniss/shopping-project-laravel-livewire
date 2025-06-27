@@ -12,6 +12,9 @@
                             <a class="nav-link active" href="#">الرئيسية</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#">تسوق</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">المنتجات</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -67,9 +70,7 @@
                 </li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
-                    <a class="dropdown-item text-danger" wire:click.prevent="logout" href="#">
-                        <i class="fas fa-sign-out-alt me-2"></i> تسجيل الخروج
-                    </a>
+                    <livewire:client.auth.client-logout-component/>
                 </li>
             </ul>
         </div>
