@@ -17,10 +17,23 @@ class UpdateSettings extends Component
     public $instagram;
     public $x;
     public $whatsapp;
-public $fax;
+    public $fax;
     public $logo; // الشعار الجديد
 
-
+    public function mount()
+    {
+        $settings = Settings::first();
+        if ($settings) {
+            $this->name = $settings->name;
+            $this->email = $settings->email;
+            $this->phone_number = $settings->phone_number;
+            $this->facebook = $settings->facebook;
+            $this->instagram = $settings->instagram;
+            $this->whatsapp = $settings->whatsapp;
+            $this->x = $settings->x;
+            $this->fax = $settings->fax;
+        }
+    }
 
     public function rules()
     {
@@ -33,7 +46,7 @@ public $fax;
             'whatsapp'       => 'nullable|string',
             'phone_number'   => 'nullable|string',
             'fax'            => 'nullable|string',
-            'logo'                    => 'nullable|image|max:1024',
+            'logo'           => 'nullable|image',
         ];
     }
 
@@ -41,17 +54,36 @@ public $fax;
     {
         $this->validate();
 
-        // حفظ الشعار إذا تم رفعه
+        $settings = Settings::first() ?? new Settings();
+
         if ($this->logo) {
-            $logoName = $this->logo->store('logos', 'public');
-            $this->settings->logo = $logoName;
+            $settings->logo = $this->logo->store('logos', 'public');
         }
 
-        $isSaved =  $this->settings->save();
+        $settings->name         = $this->name;
+        $settings->email        = $this->email;
+        $settings->phone_number = $this->phone_number;
+        $settings->facebook     = $this->facebook;
+        $settings->instagram    = $this->instagram;
+        $settings->x            = $this->x;
+        $settings->whatsapp     = $this->whatsapp;
+        $settings->fax          = $this->fax;
+
+        $isSaved = $settings->save();
+
         if ($isSaved) {
-            session()->flash('success', 'تم حفظ التعديلات بنجاح ✅');
+            // ✅ التصحيح هنا
+            $this->dispatch('swal:success',
+                message : 'تم تحديث الإعدادات بنجاح'
+            );
+        } else {
+            // ممكن تعملها أيضًا بـ dispatchBrowserEvent بدل session
+            $this->dispatch('swal:error',
+                message : 'حدث خطأ أثناء تحديث الإعدادات'
+            );
         }
     }
+
 
     public function render()
     {

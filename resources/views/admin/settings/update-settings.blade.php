@@ -9,13 +9,17 @@
             <div class="col-md-6 mb-2">
                 <label class="form-label">Name</label>
                 <input type="text" class="form-control" placeholder="Name" wire:model='name' />
-                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                @error('name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="col-md-6 mb-2">
                 <label class="form-label">Logo</label>
                 <input type="file" class="form-control" wire:model='logo' />
-                @error('logo') <span class="text-danger">{{ $message }}</span> @enderror
+                @error('logo')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
 
                 @if ($logo)
                     <img src="{{ asset('storage/' . $logo) }}" width="100" class="mt-2">
@@ -58,8 +62,15 @@
             </div>
         </div>
 
-        <div class="card-footer text-end">
-            <button type="submit" class="btn btn-primary">💾 حفظ الإعدادات</button>
+        <div class="card-footer text-start ">
+            <button class="btn btn-primary d-flex justify-content-center align-items-center gap-2 w-100" type="submit"
+                wire:loading.attr="disabled">
+                Save
+                <div class="spinner-border spinner-border-sm text-light" role="status" wire:loading
+                    wire:target="login">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </button>
         </div>
     </form>
 </div>

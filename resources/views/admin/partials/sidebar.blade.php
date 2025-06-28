@@ -28,6 +28,12 @@
                  <div data-i18n="Analytics">Settings</div>
              </a>
          </li>
+          <li class="menu-item @yield('product-active')">
+             <a href="{{ route('admin.products') }}" class="menu-link">
+                 <i class="menu-icon tf-icons bx bx-cog"></i>
+                 <div data-i18n="Analytics">Products</div>
+             </a>
+         </li>
 
      </ul>
  </aside>

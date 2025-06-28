@@ -25,30 +25,34 @@
                     <!-- Content -->
                     @yield('content')
 
-                      </div>
-                    <!-- / Content -->
-
-                    <!-- Footer -->
-                    @include('admin.partials.footer')
-                    <!-- / Footer -->
-
-                    <div class="content-backdrop fade"></div>
                 </div>
-                <!-- Content wrapper -->
-            </div>
-            <!-- / Layout page -->
-        </div>
+                <!-- / Content -->
 
-        <!-- Overlay -->
-        <div class="layout-overlay layout-menu-toggle"></div>
+                <!-- Footer -->
+                @include('admin.partials.footer')
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
     </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
     <!-- / Layout wrapper -->
 
-   
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+    @include('admin.partials.alerts')
+    @include('admin.partials.alerts_livewire')
+        @stack('scripts')
+
     @include('admin.partials.script')
+
 </body>
 
 </html>

@@ -35,6 +35,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/settings',function(){
         return view('admin.settings.setting');
     })->name('admin.settings');
+    Route::get('/products',function(){
+        return view('admin.products.products');
+    })->name('admin.products');
 });
 
 
