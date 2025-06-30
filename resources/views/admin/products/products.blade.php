@@ -8,13 +8,14 @@
             <h4 class="fw-bold py-3 mb-4">Products</h4>
 
             <div class="card mb-4">
-                <livewire:admin.products.products-component/>
+                <livewire:admin.products.products-component />
 
 
             </div>
-
-
-
-
         </div>
-    @endsection
+        <livewire:admin.products.edit-product />
+
+    </div>
+
+
+@endsection

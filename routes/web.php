@@ -38,6 +38,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/products',function(){
         return view('admin.products.products');
     })->name('admin.products');
+    // Route::get('/createprduct',function(){
+    //     return view('')
+    // })->name('admin.create.product');
 });
 
 
