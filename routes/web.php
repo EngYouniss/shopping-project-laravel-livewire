@@ -38,9 +38,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/products',function(){
         return view('admin.products.products');
     })->name('admin.products');
-    // Route::get('/createprduct',function(){
-    //     return view('')
-    // })->name('admin.create.product');
+    Route::get('/categories',function(){
+        return view('admin.categories.categories');
+    })->name('admin.categories');
+     Route::get('/orders',function(){
+        return view('admin.orders.orders');
+    })->name('admin.orders');
 });
 
 

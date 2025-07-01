@@ -7,8 +7,13 @@
                     <div class="card-body">
                         <!-- Logo -->
                         @if (session()->has('error'))
-                            <p>{{session('error')}}</p>
+                            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                                {{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
                         @endif
+
                         <!-- /Logo -->
                         <h4 class="mb-2">Welcome to Shopping Dashboard! 👋</h4>
                         <p class="mb-4">Please sign-in to your account and start the adventure</p>
@@ -31,9 +36,8 @@
                                     </a>
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control"
-                                        wire:model="password" placeholder="••••••••••"
-                                        aria-describedby="password" />
+                                    <input type="password" id="password" class="form-control" wire:model="password"
+                                        placeholder="••••••••••" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                                 @error('password')
@@ -48,9 +52,15 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                            </div>
+                            <button
+                                    class="btn btn-primary d-flex justify-content-center align-items-center gap-2 w-100"
+                                    type="submit" wire:loading.attr="disabled">
+                                    Sign in
+                                    <div class="spinner-border spinner-border-sm text-light" role="status" wire:loading
+                                        wire:target="login">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </button>
                         </form>
 
 

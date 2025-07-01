@@ -1,57 +1,45 @@
 <?php
 
-namespace App\Livewire\Admin\Products;
+namespace App\Livewire\Admin\Categories;
 
 use App\Models\Category;
-use App\Models\Product;
 use Livewire\Attributes\On;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 
-class EditProduct extends Component
+class UpdateCategoryComponent extends Component
 {
-    use WithFileUploads;
 
-    public $productId;
-    public $name, $description, $price, $image, $currentImage, $category_id;
+
+    public $categoryId;
+    public $name, $description;
 
     protected $listeners = ['updateProduct' => 'loadProduct', 'deleteProduct' => 'confirmDelete'];
 
     public function loadProduct($id)
     {
-        $product = Product::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        $this->productId     = $product->id;
-        $this->name          = $product->name;
-        $this->description   = $product->description;
-        $this->price         = $product->price;
-        $this->category_id   = $product->category_id;
-        $this->currentImage  = $product->image;
+        $this->categoryId     = $category->id;
+        $this->name          = $category->name;
+        $this->description   = $category->description;
 
-        $this->dispatch('edit-product'); // لفتح المودال
+        $this->dispatch('edit-category-model'); // لفتح المودال
     }
 
     public function updateProduct()
     {
-        $product = Product::findOrFail($this->productId);
+        $category = Category::findOrFail($this->categoryId);
 
         $validated = $this->validate([
             'name'        => 'required|string|max:255',
             'description' => 'nullable|string',
-            'price'       => 'required|numeric',
-            'category_id' => 'required|exists:categories,id',
-            'image'       => 'nullable|image|max:2048',
+
         ]);
 
         // إذا رفع صورة جديدة
-        if ($this->image) {
-            $imagePath = $this->image->store('products', 'public');
-            $validated['image'] = $imagePath;
-        } else {
-            $validated['image'] = str_replace('http://127.0.0.1:8000/storage/', '', $this->currentImage);
-        }
 
-        $updated = $product->update($validated);
+
+        $updated = $category->update($validated);
         $this->reset();
         $this->dispatch('close-edit-modal');
         if ($updated) {
@@ -77,7 +65,7 @@ class EditProduct extends Component
     #[On('deleteConfirmed')]
     public function delete($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Category::findOrFail($id);
         $deleted = $product->delete();
         if ($deleted) {
             $this->dispatch(
@@ -94,10 +82,9 @@ class EditProduct extends Component
     }
 
 
+
     public function render()
     {
-        return view('admin.products.edit-product', [
-            'categories' => Category::all(),
-        ]);
+        return view('admin.categories.update-category-component');
     }
 }

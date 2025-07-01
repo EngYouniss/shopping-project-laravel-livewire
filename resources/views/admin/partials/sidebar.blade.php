@@ -1,39 +1,54 @@
- <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-     <div class="app-brand demo">
-         <a href="{{ route('admin.dashboard') }}" class="app-brand-link">
-             <span class="app-brand-logo demo">
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme shadow-sm rounded-end">
+    <!-- Logo -->
+    <div class="app-brand p-3 border-bottom">
+        <a href="{{ route('admin.dashboard') }}" class="app-brand-link d-flex align-items-center text-decoration-none">
+            <i class="bx bx-bar-chart-alt-2 bx-sm text-primary me-2"></i>
+            <span class="app-brand-text fw-bold fs-5">Dashboard</span>
+        </a>
 
-             </span>
-             <span class="app-brand-text demo menu-text fw-bolder ms-2">Dashboard</span>
-         </a>
+        <a href="javascript:void(0);" class="layout-menu-toggle ms-auto d-xl-none">
+            <i class="bx bx-x bx-sm"></i>
+        </a>
+    </div>
 
-         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-             <i class="bx bx-chevron-left bx-sm align-middle"></i>
-         </a>
-     </div>
+    <!-- Inner shadow -->
+    <div class="menu-inner-shadow"></div>
 
-     <div class="menu-inner-shadow"></div>
+    <!-- Navigation Links -->
+    <ul class="menu-inner py-3">
+        <li class="menu-item @yield('index-active')">
+            <a href="{{ route('admin.dashboard') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
 
-     <ul class="menu-inner py-1">
-         <!-- Dashboard -->
-         <li class="menu-item @yield('index-active')">
-             <a href="{{ route('admin.dashboard') }}" class="menu-link">
-                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                 <div data-i18n="Analytics">Dashboard</div>
-             </a>
-         </li>
-         <li class="menu-item @yield('setting-active')">
-             <a href="{{ route('admin.settings') }}" class="menu-link">
-                 <i class="menu-icon tf-icons bx bx-cog"></i>
-                 <div data-i18n="Analytics">Settings</div>
-             </a>
-         </li>
-          <li class="menu-item @yield('product-active')">
-             <a href="{{ route('admin.products') }}" class="menu-link">
-                 <i class="menu-icon tf-icons bx bx-cog"></i>
-                 <div data-i18n="Analytics">Products</div>
-             </a>
-         </li>
+        <li class="menu-item @yield('setting-active')">
+            <a href="{{ route('admin.settings') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <span>Settings</span>
+            </a>
+        </li>
 
-     </ul>
- </aside>
+        <li class="menu-item @yield('product-active')">
+            <a href="{{ route('admin.products') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-package"></i>
+                <span>Products</span>
+            </a>
+        </li>
+
+        <li class="menu-item @yield('category-active')">
+            <a href="{{ route('admin.categories') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-category"></i>
+                <span>Categories</span>
+            </a>
+        </li>
+
+        <li class="menu-item @yield('order-active')">
+            <a href="{{ route('admin.orders') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-receipt"></i>
+                <span>Orders</span>
+            </a>
+        </li>
+    </ul>
+</aside>

@@ -11,7 +11,7 @@
 
             @include('admin.partials.sidebar')
             <!-- / Menu -->
-
+                        
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->

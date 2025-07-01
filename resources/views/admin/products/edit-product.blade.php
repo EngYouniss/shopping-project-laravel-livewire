@@ -88,8 +88,13 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                             Close
+                           <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">Save Product
+
+                            <div class="spinner-border spinner-border-sm text-light" role="status" wire:loading
+                                wire:target="updateProduct">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         </button>
-                        <button type="submit" class="btn btn-primary">Save Product</button>
                     </div>
                 </form>
 
