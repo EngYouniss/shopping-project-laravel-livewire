@@ -44,6 +44,16 @@ Route::prefix('admin')->group(function () {
      Route::get('/orders',function(){
         return view('admin.orders.orders');
     })->name('admin.orders');
+
+    Route::get('/sliders',function(){
+        return view('admin.sliders.sliders');
+    })->name('admin.sliders');
+
+
+    Route::get('/users',function(){
+        return view('admin.users.users');
+    })->name('admin.users');
+
 });
 
 

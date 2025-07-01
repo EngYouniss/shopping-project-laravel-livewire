@@ -7,7 +7,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form wire:submit.prevent="updateProduct">
+                <form wire:submit.prevent="Edit">
                     <div class="modal-body">
                         {{$slot}}
                     </div>

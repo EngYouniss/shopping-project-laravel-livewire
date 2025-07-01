@@ -1,37 +1,47 @@
 <?php
 
-namespace App\Livewire\Admin\Categories;
+namespace App\Livewire\Admin\Sliders;
 
-use App\Models\Category;
+use App\Models\Slider;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class UpdateCategoryComponent extends Component
+class EditSliderComponent extends Component
 {
+    use WithFileUploads;
+    public function render()
+    {
+        return view('admin.sliders.edit-slider-component');
+    }
 
 
-    public $categoryId;
-    public $name, $description;
 
-    protected $listeners = ['Edit' => 'loadProduct', 'deleteProduct' => 'confirmDelete'];
+    public $sliderId;
+    public $title, $description, $button_text, $image, $status;
+
+    protected $listeners = ['editSlider' => 'loadProduct', 'deleteProduct' => 'confirmDelete'];
 
     public function loadProduct($id)
     {
-        $category = Category::findOrFail($id);
+        $slider = Slider::findOrFail($id);
 
-        $this->categoryId     = $category->id;
-        $this->name          = $category->name;
-        $this->description   = $category->description;
+        $this->sliderId     = $slider->id;
+        $this->title          = $slider->title;
+        $this->description   = $slider->description;
+        $this->button_text   = $slider->button_text;
+        $this->image         = $slider->image;
+        $this->status        = $slider->status;
 
-        $this->dispatch('edit-category-model'); // لفتح المودال
+        $this->dispatch('edit-slider-model'); // لفتح المودال
     }
 
-    public function Edit()
+    public function editSlider()
     {
-        $category = Category::findOrFail($this->categoryId);
+        $category = Slider::findOrFail($this->sliderId);
 
         $validated = $this->validate([
-            'name'        => 'required|string|max:255',
+            'title'        => 'required|string|max:255',
             'description' => 'nullable|string',
 
         ]);
@@ -65,7 +75,7 @@ class UpdateCategoryComponent extends Component
     #[On('deleteConfirmed')]
     public function delete($id)
     {
-        $product = Category::findOrFail($id);
+        $product = Slider::findOrFail($id);
         $deleted = $product->delete();
         if ($deleted) {
             $this->dispatch(
@@ -83,8 +93,6 @@ class UpdateCategoryComponent extends Component
 
 
 
-    public function render()
-    {
-        return view('admin.categories.update-category-component');
-    }
+
+
 }

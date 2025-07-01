@@ -50,5 +50,18 @@
                 <span>Orders</span>
             </a>
         </li>
+        <li class="menu-item @yield('slider-active')">
+            <a href="{{ route('admin.sliders') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-receipt"></i>
+                <span>Sliders</span>
+            </a>
+        </li>
+
+         <li class="menu-item @yield('user-active')">
+            <a href="{{ route('admin.users') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-receipt"></i>
+                <span>Users</span>
+            </a>
+        </li>
     </ul>
 </aside>

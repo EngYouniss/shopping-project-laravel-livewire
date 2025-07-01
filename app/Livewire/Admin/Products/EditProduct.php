@@ -15,7 +15,7 @@ class EditProduct extends Component
     public $productId;
     public $name, $description, $price, $image, $currentImage, $category_id;
 
-    protected $listeners = ['updateProduct' => 'loadProduct', 'deleteProduct' => 'confirmDelete'];
+    protected $listeners = ['Edit' => 'loadProduct', 'deleteProduct' => 'confirmDelete'];
 
     public function loadProduct($id)
     {
@@ -31,7 +31,7 @@ class EditProduct extends Component
         $this->dispatch('edit-product'); // لفتح المودال
     }
 
-    public function updateProduct()
+    public function Edit()
     {
         $product = Product::findOrFail($this->productId);
 

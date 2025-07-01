@@ -54,7 +54,7 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="#"
-                                                    wire:click.prevent="$dispatch('updateProduct',{id:{{ $product->id }}})">
+                                                    wire:click.prevent="$dispatch('Edit',{id:{{ $product->id }}})">
                                                     <i class="bx bx-edit-alt me-1"></i> Edit
                                                 </a>
                                                 <a class="dropdown-item" href="#" wire:click.prevent="$dispatch('deleteProduct',{id:{{$product->id}}})">

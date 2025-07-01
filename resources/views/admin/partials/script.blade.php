@@ -69,6 +69,11 @@
              const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
              modal.show();
          });
+          Livewire.on('edit-slider-model', () => {
+             const modalEl = document.getElementById('editModalCenter');
+             const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+             modal.show();
+         });
 
          Livewire.on('close-edit-modal', () => {
              const modalEl = document.getElementById('editModalCenter');
