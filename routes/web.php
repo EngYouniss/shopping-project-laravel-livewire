@@ -17,6 +17,10 @@ Route::prefix('user')->group(function () {
     Route::get('/register', function () {
         return view('client.auth.register');
     })->name('user.register');
+
+    Route::get('/products', function () {
+        return view('client.products.products');
+    })->name('client.products');
 });
 
 Route::prefix('admin')->group(function () {

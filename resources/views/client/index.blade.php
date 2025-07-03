@@ -74,7 +74,7 @@
     @livewire('client.categories.categories-component')
 
     <!-- Customer Testimonials -->
-    <section class="testimonials py-5">
+    {{-- <section class="testimonials py-5">
         <div class="container">
             <h2 class="section-title text-center mb-5">Customer Reviews</h2>
             <div class="row">
@@ -131,7 +131,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+    @livewire('client.reviews.reviews-component')
 
     <!-- Store Features -->
     <section class="features py-5 bg-light">

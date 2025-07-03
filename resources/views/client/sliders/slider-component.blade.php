@@ -1,6 +1,6 @@
 <div>
   <div class="hero-section mb-5">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000" data-bs-pause="hover">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="1000" data-bs-pause="hover">
       <!-- Indicators -->
       <div class="carousel-indicators">
         @foreach ($sliders as $index => $slider)
@@ -19,7 +19,7 @@
         @foreach ($sliders as $index => $slider)
           <div class="carousel-item @if($index === 0) active @endif">
             <div class="position-relative">
-              <img src="{{ asset($slider->image) }}" class="d-block w-100" alt="{{ $slider->title }}"
+              <img src="{{ asset($slider->image) }}" class="d-block w-90" alt="{{ $slider->title }}"
                    style="height: 500px; object-fit: cover; object-position: center;">
               <div class="carousel-overlay"></div>
             </div>
