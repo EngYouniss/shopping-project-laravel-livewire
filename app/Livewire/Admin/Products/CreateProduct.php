@@ -23,9 +23,10 @@ class CreateProduct extends Component
 
     #[Validate('nullable|image|max:2048')]
     public $image;
-
+    #[Validate('nullable')]
     public $description;
-    // public $stock;
+    #[Validate('nullable')]
+    public $is_featured;
     // public $status;
 
     public function submit()
@@ -42,6 +43,7 @@ class CreateProduct extends Component
         // $validated['status'] = $this->status;
         $validated['price'] = $this->price;
         $validated['category_id'] = $this->category_id;
+        $validated['is_featured'] = $this->is_featured;
         $isCreated = Product::create($validated);
         if ($isCreated) {
             $this->dispatch(
@@ -57,7 +59,7 @@ class CreateProduct extends Component
         }
         $this->dispatch('close-create-modal');
         $this->dispatch('productAdded');
-        $this->reset(); 
+        $this->reset();
     }
 
     public function render()

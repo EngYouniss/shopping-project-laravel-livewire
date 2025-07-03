@@ -42,26 +42,26 @@
                                 @enderror
                             </div> --}}
 
-       <div class="row">
-    <!-- رفع صورة جديدة -->
-    <div class="col-md-6 mb-3">
-        <label for="image" class="form-label">Product Image</label>
-        <input type="file" id="image" class="form-control @error('image') is-invalid @enderror"
-            wire:model="image" accept="image/*" />
-        @error('image')
-            <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-    </div>
+        <div class="row">
+            <!-- رفع صورة جديدة -->
+            <div class="col-md-6 mb-3">
+                <label for="image" class="form-label">Product Image</label>
+                <input type="file" id="image" class="form-control @error('image') is-invalid @enderror"
+                    wire:model="image" accept="image/*" />
+                @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
 
-    <!-- عرض الصورة الحالية -->
-    <div class="col-md-6 mb-3 d-flex align-items-center justify-content-center">
-        @if ($image)
-            <img src="{{ $image->temporaryUrl() }}" class="img-thumbnail" width="150" />
-        @elseif ($currentImage)
-            <img src="{{ $currentImage }}" class="img-thumbnail" width="150" />
-        @endif
-    </div>
-</div>
+            <!-- عرض الصورة الحالية -->
+            <div class="col-md-6 mb-3 d-flex align-items-center justify-content-center">
+                @if ($image)
+                    <img src="{{ $image->temporaryUrl() }}" class="img-thumbnail" width="150" />
+                @elseif ($currentImage)
+                    <img src="{{ $currentImage }}" class="img-thumbnail" width="150" />
+                @endif
+            </div>
+        </div>
 
 
         {{-- <div class="col-md-4 mb-3">
@@ -86,6 +86,12 @@
             @enderror
         </div>
     </div>
-
+    <!-- Featured Product -->
+    <div class="col-md-12 mb-3">
+        <div class="form-check ">
+            <input class="form-check-input" type="checkbox" id="isFeatured" wire:model="is_featured">
+            <label class="form-check-label fw-semibold" for="isFeatured">Make this product featured</label>
+        </div>
+    </div>
 
 </x-edit-modal>

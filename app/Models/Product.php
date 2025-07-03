@@ -16,6 +16,7 @@ protected $fillable = [
     'image',
     'status',
     'description',
+    'is_featured',
 ];
 
     public function category(){

@@ -68,4 +68,14 @@
             @enderror
         </div>
     </div>
+    <!-- Featured Product -->
+<div class="col-md-12 mb-3">
+    <div class="form-check ">
+        <input class="form-check-input"
+               type="checkbox"
+               id="isFeatured"
+               wire:model="is_featured">
+        <label class="form-check-label fw-semibold" for="isFeatured">Make this product featured</label>
+    </div>
+</div>
 </x-create-modal>

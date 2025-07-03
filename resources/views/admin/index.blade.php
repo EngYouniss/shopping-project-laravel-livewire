@@ -3,7 +3,7 @@
 @section('index-active', 'active')
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-8 mb-4 order-0">
                 <div class="card">
                     <div class="d-flex align-items-end row">
@@ -222,8 +222,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+        @livewire('admin.statistics.statistical-component')
+
         <div class="row">
+
             <!-- Order Statistics -->
             <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
                 <div class="card h-100">
@@ -476,8 +480,8 @@
                             </li>
                             <li class="d-flex">
                                 <div class="avatar flex-shrink-0 me-3">
-                                    <img src="{{ asset('admin/assets/img/icons/unicons/cc-warning.png') }}"
-                                        alt="User" class="rounded" />
+                                    <img src="{{ asset('admin/assets/img/icons/unicons/cc-warning.png') }}" alt="User"
+                                        class="rounded" />
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                     <div class="me-2">

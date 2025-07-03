@@ -26,7 +26,7 @@
                                 <th>Price</th>
                                 <th>Category</th>
                                 <th>Image</th>
-                                <th>Status</th>
+                                <th>Featured</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -45,7 +45,7 @@
                                             </li>
                                         </ul>
                                     </td>
-                                    <td><span class="badge bg-label-primary me-1">Active</span></td>
+                                    <td><span class="badge bg-label-primary me-1">{{ $product->is_featured }}</span></td>
                                     <td>
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"

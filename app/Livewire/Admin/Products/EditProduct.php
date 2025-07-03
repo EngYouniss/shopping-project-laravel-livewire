@@ -13,7 +13,7 @@ class EditProduct extends Component
     use WithFileUploads;
 
     public $productId;
-    public $name, $description, $price, $image, $currentImage, $category_id;
+    public $name, $description, $price, $image, $currentImage, $category_id, $is_featured;
 
     protected $listeners = ['Edit' => 'loadProduct', 'deleteProduct' => 'confirmDelete'];
 
@@ -27,7 +27,7 @@ class EditProduct extends Component
         $this->price         = $product->price;
         $this->category_id   = $product->category_id;
         $this->currentImage  = $product->image;
-
+        $this->is_featured   = $product->is_featured;
         $this->dispatch('edit-product'); // لفتح المودال
     }
 
@@ -41,6 +41,7 @@ class EditProduct extends Component
             'price'       => 'required|numeric',
             'category_id' => 'required|exists:categories,id',
             'image'       => 'nullable|image|max:2048',
+            'is_featured' => 'nullable|boolean',
         ]);
 
         // إذا رفع صورة جديدة
