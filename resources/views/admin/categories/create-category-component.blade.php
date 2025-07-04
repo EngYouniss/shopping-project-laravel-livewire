@@ -10,6 +10,14 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="image" class="form-label">Category Image</label>
+                                    <input type="file" id="image" class="form-control @error('image') is-invalid @enderror"
+                                        wire:model="image">
+                                    @error('image')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
                         </div>
 
                         <!-- Optional: Category Description -->

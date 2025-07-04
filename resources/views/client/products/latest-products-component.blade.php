@@ -3,10 +3,10 @@
         <div class="container">
             <div class="section-header d-flex justify-content-between align-items-center mb-5">
                 <h2 class="section-title">Latest Products</h2>
-                <a href="#" class="btn btn-outline-primary">View All</a>
+                <a href="{{ route('client.products') }}" class="btn btn-outline-primary">View All</a>
             </div>
 
-            <div class="latest-products-slider">
+            <div class="latest-products-slider" wire:ignore>
                 @foreach ($latestProducts as $product)
                     <div class="product-slide px-2">
                         <div class="card product-card h-100">
@@ -18,7 +18,8 @@
                             </div>
 
                             <div class="card-body">
-                                <div class="product-category text-muted">{{ $product->category->name }}</div>
+                                <div class="product-category text-muted">
+                                    {{ $product->category?->name ?? 'No Category' }}</div>
                                 <h5 class="card-title">{{ $product->name }}</h5>
                                 <div class="product-rating mb-2">
                                     <i class="fas fa-star text-warning"></i>
@@ -37,7 +38,8 @@
                             </div>
 
                             <div class="card-footer bg-transparent">
-                                <button class="btn btn-primary w-100 add-to-cart">Add to Cart</button>
+                                <button class="btn btn-primary w-100 add-to-cart"
+                                    wire:click="addToCart({{ $product->id }})">Add to Cart</button>
                             </div>
                         </div>
                     </div>

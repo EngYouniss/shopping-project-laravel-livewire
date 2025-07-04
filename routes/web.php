@@ -1,8 +1,11 @@
 <?php
 
-use App\Livewire\Client\Auth\ClientLoginComponent;
-use App\Livewire\FullComp;
+use App\Livewire\Client\Categories\Auth\ClientLoginComponent;
+use App\Livewire\Client\Categories\CategoriesComponent;
+use App\Livewire\Client\Categories\CategoryProductsComponent;
+
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 Route::get('/home', function () {
     return view('client.index');
@@ -21,6 +24,11 @@ Route::prefix('user')->group(function () {
     Route::get('/products', function () {
         return view('client.products.products');
     })->name('client.products');
+
+
+
+
+
 });
 
 Route::prefix('admin')->group(function () {
@@ -57,6 +65,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/users',function(){
         return view('admin.users.users');
     })->name('admin.users');
+
+    Route::get('/offers',function(){
+        return view('admin.offers.offers');
+    })->name('admin.offers');
 
 });
 

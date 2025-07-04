@@ -66,10 +66,10 @@
                     <input type="number" class="form-control form-control-sm" placeholder="Max" style="width: 80px">
                 </div>
                 <div class="col-md-4">
-                    <div class="form-check form-check-inline">
+                    {{-- <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inStock">
                         <label class="form-check-label" for="inStock">In Stock Only</label>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-4 text-md-end">
                     <div class="d-inline-block me-2">

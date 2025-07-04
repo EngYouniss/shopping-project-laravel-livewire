@@ -4,12 +4,12 @@
             <div class="row align-items-center gy-4">
                 <!-- Text Content -->
                 <div class="col-md-6">
-                    <h2 class="fw-bold mb-3">{{ $offers->title }}</h2>
+                    <h2 class="fw-bold mb-3">{{ $offers->title?? 'Special Offer' }}</h2>
 
                     <p class="mb-4">
-                        {!! nl2br(e($offers->description)) !!}
+                        {!! nl2br(e($offers->description?? 'Special Offer')) !!}
                         <br>
-                        <strong class="fs-5">Discounted Price: YER {{ $offers->discount_price }}</strong>
+                        <strong class="fs-5">Discounted Price: YER {{ $offers->discount_price?? '0.00' }}</strong>
                         <br>
                         <span class="badge bg-light text-primary fw-bold mt-2">DISCOUNT CODE: ELECTRO30</span>
                     </p>
@@ -42,7 +42,7 @@
 
                 <!-- Offer Image -->
                 <div class="col-md-6">
-                    <img src="{{ $offers->image }}"
+                    <img src="{{ $offers->image??'nothing' }}"
                          alt="Special Offer"
                          class="img-fluid rounded-4 shadow-sm"
                          style="object-fit: cover; height: 100%; max-height: 400px; width: 100%;">
@@ -54,7 +54,7 @@
     <!-- Countdown Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            let offerEndDate = new Date("{{ \Carbon\Carbon::parse($offers->end_date)->format('Y-m-d H:i:s') }}").getTime();
+            let offerEndDate = new Date("{{ \Carbon\Carbon::parse($offers->end_date?? '')->format('Y-m-d H:i:s') }}").getTime();
 
             let countdown = setInterval(function () {
                 let now = new Date().getTime();

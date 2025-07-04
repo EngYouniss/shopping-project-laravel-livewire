@@ -51,16 +51,7 @@
                                 <i class="fas fa-basketball-ball me-2 text-warning"></i> Sports
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-blender me-2 text-success"></i> Home Appliances
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-book-open me-2 text-secondary"></i> Books
-                            </a>
-                        </li>
+                       
                     </ul>
 
                 </li>
@@ -75,16 +66,7 @@
 
             <!-- Right Icons -->
             <div class="d-flex gap-5 align-items-center ms-auto">
-                <!-- Shopping Cart -->
-                {{-- <div class="position-relative">
-                    <a href="#" class="text-white fs-5 position-relative" title="Shopping Cart">
-                        <i class="fas fa-shopping-cart fa-lg"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            3
-                            <span class="visually-hidden">Items in cart</span>
-                        </span>
-                    </a>
-                </div> --}}
+
               <livewire:client.cart.cart-component />
 
 

@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <!-- جدول المنتجات -->
+        <!-- جدول اصناف المنتجات -->
         <div class="card">
             <div class="table-responsive text-nowrap">
                 @if (count($categories) > 0)
@@ -22,6 +22,7 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Description</th>
+                                <th>Image</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -31,6 +32,15 @@
                                     <td>{{ $category->id }}</td>
                                     <td><strong>{{ $category->name }}</strong></td>
                                     <td>{{ $category->description }}</td>
+
+                                    <td>
+                                        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                            <li class="avatar avatar-md pull-up" title="Product Image">
+                                                <img src="{{  $category->image }}" alt="Avatar" />
+                                            </li>
+                                        </ul>
+                                    </td>
+
 
                                     <td>
                                         <div class="dropdown">
@@ -56,7 +66,6 @@
                         </tbody>
                     </table>
                     @livewire('admin.categories.update-category-component')
-
                 @else
                     <div class="text-danger p-3">Category Not Found.</div>
                 @endif
@@ -64,10 +73,10 @@
         </div>
 
         <!-- Pagination -->
-      <div class="d-flex justify-content-center mt-3">
-    {{ $categories->onEachSide(3)->links() }}
-</div>
+        <div class="d-flex justify-content-center mt-3">
+            {{ $categories->onEachSide(3)->links() }}
+        </div>
 
-                <livewire:admin.categories.create-category-component />
+        <livewire:admin.categories.create-category-component />
 
-</div>
+    </div>

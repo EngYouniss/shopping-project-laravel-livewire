@@ -3,15 +3,17 @@
 namespace App\Livewire\Admin\Categories;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class UpdateCategoryComponent extends Component
 {
-
+    use WithFileUploads;
 
     public $categoryId;
-    public $name, $description;
+    public $name, $description, $image, $currentImage;
 
     protected $listeners = ['Edit' => 'loadProduct', 'deleteProduct' => 'confirmDelete'];
 
@@ -29,12 +31,21 @@ class UpdateCategoryComponent extends Component
     public function Edit()
     {
         $category = Category::findOrFail($this->categoryId);
-
-        $validated = $this->validate([
+         $validated = $this->validate([
             'name'        => 'required|string|max:255',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'nullable|string',
 
         ]);
+        if ($this->image) {
+            $imagePath = $this->image->store('categories', 'public');
+            $validated['image'] = $imagePath;
+        } else {
+
+        $validated['image'] = str_replace('http://127.0.0.1:8000/storage/', '', $this->currentImage);
+        }
+
+
 
         // إذا رفع صورة جديدة
 
@@ -78,6 +89,8 @@ class UpdateCategoryComponent extends Component
                 message: "حدث خطا اثناء الحذف!!"
             );
         }
+            Cache::forget('categories');
+
         $this->dispatch('productAdded');
     }
 

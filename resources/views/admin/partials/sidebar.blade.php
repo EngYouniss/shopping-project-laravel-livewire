@@ -57,11 +57,18 @@
             </a>
         </li>
 
-         <li class="menu-item @yield('user-active')">
+        <li class="menu-item @yield('user-active')">
+            <a href="{{ route('admin.offers') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-receipt"></i>
+                <span>Offers</span>
+            </a>
+        </li>
+        <li class="menu-item @yield('user-active')">
             <a href="{{ route('admin.users') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-receipt"></i>
                 <span>Users</span>
             </a>
         </li>
+
     </ul>
 </aside>

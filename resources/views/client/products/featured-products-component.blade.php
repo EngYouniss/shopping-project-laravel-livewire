@@ -7,7 +7,7 @@
                     <h2 class="section-title fw-bold mb-1">Featured Products</h2>
                     <div class="divider bg-primary" style="width: 80px; height: 3px;"></div>
                 </div>
-                <a href="#" class="btn btn-outline-primary rounded-pill px-4 py-2">
+                <a href="{{ route('client.products') }}" class="btn btn-outline-primary rounded-pill px-4 py-2">
                     View All <i class="fas fa-arrow-left ms-2"></i>
                 </a>
             </div>
@@ -47,13 +47,15 @@
                             <div class="card-body p-3">
                                 <!-- Category -->
                                 <a href="#" class="text-muted small text-decoration-none d-block mb-1">
-                                    {{ $product->category->name }}
+                                    <div class="product-category text-muted">
+                                        {{ $product->category?->name ?? 'No Category' }}</div>
                                 </a>
 
                                 <!-- Title & Rating -->
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <h5 class="product-title mb-1" style="flex: 1;">
-                                        <a href="#" class="text-dark text-decoration-none">{{ $product->name }}</a>
+                                        <a href="#"
+                                            class="text-dark text-decoration-none">{{ $product->name }}</a>
                                     </h5>
                                     <div class="product-rating ms-2 mb-3 text-nowrap">
                                         <div class="stars text-warning" style="font-size: 0.8rem;">
@@ -71,13 +73,15 @@
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <div>
                                         @if ($product->price)
-                                            <span class="text-muted text-decoration-line-through d-block small">YER {{ $product->price }}</span>
+                                            <span class="text-muted text-decoration-line-through d-block small">YER
+                                                {{ $product->price }}</span>
                                             <span class="fw-bold text-primary">YER {{ $product->price }}</span>
                                         @else
                                             <span class="fw-bold text-primary">YER {{ $product->price }}</span>
                                         @endif
                                     </div>
-                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 w-50">
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3 w-50"
+                                        wire:click="addToCart({{ $product->id }})">
                                         <i class="fas fa-shopping-cart"></i> Add
                                     </button>
                                 </div>
@@ -113,7 +117,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
         }
 
         .product-card:hover .product-image {

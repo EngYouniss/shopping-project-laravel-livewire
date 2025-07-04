@@ -9,6 +9,15 @@
         </div>
 
         <div class="mb-3">
+            <label for="image" class="form-label">Product Image</label>
+            <input type="file" id="image" class="form-control @error('image') is-invalid @enderror"
+                wire:model="image">
+            @error('image')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <textarea id="description" class="form-control @error('description') is-invalid @enderror"
                 placeholder="Product Description" rows="3" wire:model="description"></textarea>

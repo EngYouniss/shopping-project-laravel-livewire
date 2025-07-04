@@ -11,22 +11,28 @@
             <!-- Categories Grid -->
             <div class="row g-4">
                 <!-- Electronics -->
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="category-card card border-0 h-100 overflow-hidden shadow-sm">
-                        <div class="category-img-container position-relative" style="height: 200px;">
-                            <img src="{{ asset('client/images/featured/2.jpg') }}"
-                                class="img-fluid w-100 h-100 object-fit-cover" alt="Electronics">
-                            <div
-                                class="category-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                                <h3 class="text-white mb-2">Electronics</h3>
-                                <span class="badge bg-white text-dark rounded-pill px-3">125 Products</span>
+                @foreach ($categories as $category)
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="category-card card border-0 h-100 overflow-hidden shadow-sm">
+                            <div class="category-img-container position-relative" style="height: 200px;">
+                                <img src="{{ $category->image }}" class="img-fluid w-100 h-100 object-fit-cover"
+                                    alt="Electronics">
+                                <div
+                                    class="category-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                                    <h3 class="text-white mb-2">{{ $category->name }}</h3>
+                                    <span
+                                        class="badge bg-white text-dark rounded-pill px-3">{{ count($category->products) }}
+                                        Products</span>
+                                </div>
                             </div>
-                        </div>
-                        <a href="#" class="stretched-link"></a>
-                    </div>
-                </div>
+                            <a href="{{ route('client.products') }}" class="stretched-link"></a>
 
-                <!-- Clothing -->
+                        </div>
+                    </div>
+                @endforeach
+
+
+                {{-- <!-- Clothing -->
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="category-card card border-0 h-100 overflow-hidden shadow-sm">
                         <div class="category-img-container position-relative" style="height: 200px;">
@@ -72,12 +78,12 @@
                         </div>
                         <a href="#" class="stretched-link"></a>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <!-- View All Button -->
             <div class="text-center mt-5">
-                <a href="#" class="btn btn-outline-primary btn-lg px-4 rounded-pill">
+                <a href="{{ route('client.products') }}" class="btn btn-outline-primary btn-lg px-4 rounded-pill">
                     View All Categories <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>

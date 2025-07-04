@@ -43,7 +43,7 @@ class CreateProduct extends Component
         // $validated['status'] = $this->status;
         $validated['price'] = $this->price;
         $validated['category_id'] = $this->category_id;
-        $validated['is_featured'] = $this->is_featured;
+        $validated['is_featured'] = $this->is_featured??false;
         $isCreated = Product::create($validated);
         if ($isCreated) {
             $this->dispatch(

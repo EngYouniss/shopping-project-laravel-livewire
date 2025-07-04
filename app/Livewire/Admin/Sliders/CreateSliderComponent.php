@@ -29,7 +29,7 @@ class CreateSliderComponent extends Component
     {
         $validated = $this->validate();
         if ($this->image) {
-            $validated['image'] = $this->image->store('products', 'public');
+            $validated['image'] = $this->image->store('sliders', 'public');
         }
         $isCreated = Slider::create($validated);
         if ($isCreated) {

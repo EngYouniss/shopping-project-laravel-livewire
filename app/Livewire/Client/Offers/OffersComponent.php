@@ -11,8 +11,6 @@ class OffersComponent extends Component
     {
         return view('client.offers.offers-component',[
           'offers'=>  Offer::where('status', 'active')
-     ->where('start_date', '<=', now())
-     ->where('end_date', '>=', now())
      ->first()
 
         ]);
