@@ -22,6 +22,9 @@ protected $fillable = [
     public function category(){
         return $this->belongsTo(Category::class);
     }
+    public function offrers(){
+        return $this->hasMany(Offer::class);
+    }
     public function getImageAttribute($image){
         return asset('storage/'.$image);
     }

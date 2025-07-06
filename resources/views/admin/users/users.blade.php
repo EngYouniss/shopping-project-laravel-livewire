@@ -7,7 +7,7 @@
             <h4 class="fw-bold py-3 mb-4">Users</h4>
 
             <div class="card mb-4">
-                <livewire:admin.users.users-component/>
+                <livewire:admin.users.user-component/>
 
 
             </div>
