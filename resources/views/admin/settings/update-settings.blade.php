@@ -60,6 +60,12 @@
                 <label class="form-label">Fax</label>
                 <input type="text" class="form-control" wire:model='fax' />
             </div>
+             <div class="col-md-12 mb-3">
+                <label class="form-label">About</label>
+                <textarea  class="form-control" cols="100" rows="5" wire:model="about">
+
+                </textarea>
+            </div>
         </div>
 
         <div class="card-footer text-start ">

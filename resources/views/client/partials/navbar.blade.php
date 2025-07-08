@@ -14,7 +14,7 @@
                     <a class="nav-link active" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
+                    <a class="nav-link" href="{{ route('client.products') }}">Shop</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('client.products') }}">Products</a>
@@ -22,17 +22,17 @@
 
                 <!-- Categories Hover Dropdown -->
                 <li class="nav-item dropdown hover-dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button">
+                    <a class="nav-link dropdown-toggle" href="{{ route('client.products') }}" id="navbarDropdown" role="button">
                         Categories
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('client.products') }}">
                                 <i class="fas fa-tv me-2 text-primary"></i> Electronics
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('client.products') }}">
                                 <i class="fas fa-tshirt me-2 text-danger"></i> Clothing
                             </a>
                         </li>
@@ -51,16 +51,16 @@
                                 <i class="fas fa-basketball-ball me-2 text-warning"></i> Sports
                             </a>
                         </li>
-                       
+
                     </ul>
 
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{ route('contact-us') }}">Contact</a>
                 </li>
             </ul>
 

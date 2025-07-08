@@ -15,62 +15,68 @@
     <div class="menu-inner-shadow"></div>
 
     <!-- Navigation Links -->
-   <ul class="menu-inner py-3">
-    <li class="menu-item @yield('index-active')">
-        <a href="{{ route('admin.dashboard') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-            <span>Dashboard</span>
-        </a>
-    </li>
+    <ul class="menu-inner py-3">
+        <li class="menu-item @yield('index-active')">
+            <a href="{{ route('admin.dashboard') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
 
-    <li class="menu-item @yield('setting-active')">
-        <a href="{{ route('admin.settings') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-cog"></i>
-            <span>Settings</span>
-        </a>
-    </li>
+        <li class="menu-item @yield('setting-active')">
+            <a href="{{ route('admin.settings') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <span>Settings</span>
+            </a>
+        </li>
 
-    <li class="menu-item @yield('product-active')">
-        <a href="{{ route('admin.products') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-package"></i>
-            <span>Products</span>
-        </a>
-    </li>
+        <li class="menu-item @yield('product-active')">
+            <a href="{{ route('admin.products') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-package"></i>
+                <span>Products</span>
+            </a>
+        </li>
 
-    <li class="menu-item @yield('category-active')">
-        <a href="{{ route('admin.categories') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-category"></i>
-            <span>Categories</span>
-        </a>
-    </li>
+        <li class="menu-item @yield('category-active')">
+            <a href="{{ route('admin.categories') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-category"></i>
+                <span>Categories</span>
+            </a>
+        </li>
 
-    <li class="menu-item @yield('order-active')">
-        <a href="{{ route('admin.orders') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-receipt"></i>
-            <span>Orders</span>
-        </a>
-    </li>
+        <li class="menu-item @yield('order-active')">
+            <a href="{{ route('admin.orders') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-receipt"></i>
+                <span>Orders</span>
+            </a>
+        </li>
 
-    <li class="menu-item @yield('slider-active')">
-        <a href="{{ route('admin.sliders') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-image-alt"></i>
-            <span>Sliders</span>
-        </a>
-    </li>
+        <li class="menu-item @yield('slider-active')">
+            <a href="{{ route('admin.sliders') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-image-alt"></i>
+                <span>Sliders</span>
+            </a>
+        </li>
 
-    <li class="menu-item @yield('offer-active')">
-        <a href="{{ route('admin.offers') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-purchase-tag-alt"></i>
-            <span>Offers</span>
-        </a>
-    </li>
+        <li class="menu-item @yield('offer-active')">
+            <a href="{{ route('admin.offers') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-purchase-tag-alt"></i>
+                <span>Offers</span>
+            </a>
+        </li>
 
-    <li class="menu-item @yield('user-active')">
-        <a href="{{ route('admin.users') }}" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-user"></i>
-            <span>Users</span>
-        </a>
-    </li>
-</ul>
+        <li class="menu-item @yield('user-active')">
+            <a href="{{ route('admin.users') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <span>Users</span>
+            </a>
+        </li>
+        <li class="menu-item @yield('message-active')">
+            <a href="{{ route('admin.messages') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <span>Messages</span>
+            </a>
+        </li>
+    </ul>
 
 </aside>

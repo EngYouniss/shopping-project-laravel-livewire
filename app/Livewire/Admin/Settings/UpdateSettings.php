@@ -19,6 +19,7 @@ class UpdateSettings extends Component
     public $whatsapp;
     public $fax;
     public $logo; // الشعار الجديد
+    public $about;
 
     public function mount()
     {
@@ -32,27 +33,14 @@ class UpdateSettings extends Component
             $this->whatsapp = $settings->whatsapp;
             $this->x = $settings->x;
             $this->fax = $settings->fax;
+            $this->about = $settings->about;
         }
     }
 
-    public function rules()
-    {
-        return [
-            'name'           => 'required|string',
-            'email'          => 'nullable|email',
-            'facebook'       => 'nullable|string',
-            'instagram'      => 'nullable|string',
-            'x'              => 'nullable|string',
-            'whatsapp'       => 'nullable|string',
-            'phone_number'   => 'nullable|string',
-            'fax'            => 'nullable|string',
-            'logo'           => 'nullable|image',
-        ];
-    }
+
 
     public function submit()
     {
-        $this->validate();
 
         $settings = Settings::first() ?? new Settings();
 
@@ -68,18 +56,20 @@ class UpdateSettings extends Component
         $settings->x            = $this->x;
         $settings->whatsapp     = $this->whatsapp;
         $settings->fax          = $this->fax;
-
+        $settings->about = $this->about;
         $isSaved = $settings->save();
 
         if ($isSaved) {
             // ✅ التصحيح هنا
-            $this->dispatch('swal:success',
-                message : 'تم تحديث الإعدادات بنجاح'
+            $this->dispatch(
+                'swal:success',
+                message: 'تم تحديث الإعدادات بنجاح'
             );
         } else {
             // ممكن تعملها أيضًا بـ dispatchBrowserEvent بدل session
-            $this->dispatch('swal:error',
-                message : 'حدث خطأ أثناء تحديث الإعدادات'
+            $this->dispatch(
+                'swal:error',
+                message: 'حدث خطأ أثناء تحديث الإعدادات'
             );
         }
     }

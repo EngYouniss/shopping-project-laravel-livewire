@@ -24,11 +24,12 @@ Route::prefix('user')->group(function () {
     Route::get('/products', function () {
         return view('client.products.products');
     })->name('client.products');
-
-
-
-
-
+    Route::get('/about-us', function () {
+        return view('client.about.about');
+    })->name('about-us');
+    Route::get('/contact-us', function () {
+        return view('client.contact.contact_us');
+    })->name('contact-us');
 });
 
 Route::prefix('admin')->group(function () {
@@ -40,38 +41,36 @@ Route::prefix('admin')->group(function () {
     //     return view('admin.auth.register');
     // })->name('admin.register');
 
-    Route::get('/dashboard',function(){
+    Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('admin.dashboard');
 
-    Route::get('/settings',function(){
+    Route::get('/settings', function () {
         return view('admin.settings.setting');
     })->name('admin.settings');
-    Route::get('/products',function(){
+    Route::get('/products', function () {
         return view('admin.products.products');
     })->name('admin.products');
-    Route::get('/categories',function(){
+    Route::get('/categories', function () {
         return view('admin.categories.categories');
     })->name('admin.categories');
-     Route::get('/orders',function(){
+    Route::get('/orders', function () {
         return view('admin.orders.orders');
     })->name('admin.orders');
 
-    Route::get('/sliders',function(){
+    Route::get('/sliders', function () {
         return view('admin.sliders.sliders');
     })->name('admin.sliders');
 
 
-    Route::get('/users',function(){
+    Route::get('/users', function () {
         return view('admin.users.users');
     })->name('admin.users');
 
-    Route::get('/offers',function(){
+    Route::get('/offers', function () {
         return view('admin.offers.offers');
     })->name('admin.offers');
-
+    Route::get('/messages', function () {
+        return view('admin.message.messages');
+    })->name('admin.messages');
 });
-
-
-
-
